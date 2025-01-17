@@ -19,6 +19,12 @@ class PostController extends Controller
         ]);
     }
 
+    public function postsUserShow(){
+
+        return view('posts-user');
+
+    }
+
 
 
 }

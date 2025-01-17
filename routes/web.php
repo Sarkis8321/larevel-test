@@ -21,6 +21,9 @@ Route::middleware([
         return view('about');
     })->name('about');
     Route::get('/posts', [PostController::class, 'index'])->name('posts')->middleware('role');
+
+    Route::get('/posts-user', [PostController::class, 'postsUserShow'])->name('posts_user_show')->middleware('role-user');
+
 });
 
 
