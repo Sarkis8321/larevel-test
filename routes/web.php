@@ -1,5 +1,9 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+
+use App\Http\Middleware\checkAdminUser;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -16,4 +20,7 @@ Route::middleware([
     Route::get('/about', function () {
         return view('about');
     })->name('about');
+    Route::get('/posts', [PostController::class, 'index'])->name('posts')->middleware('role');
 });
+
+

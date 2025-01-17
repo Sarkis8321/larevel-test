@@ -18,6 +18,15 @@
                     <x-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">
                         О компании
                     </x-nav-link>
+
+
+
+                    <x-nav-link href="{{ route('posts') }}" :active="request()->routeIs('posts')">
+                        Заявки
+                    </x-nav-link>
+                    
+
+
                 </div>
             </div>
 

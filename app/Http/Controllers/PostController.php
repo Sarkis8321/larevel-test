@@ -6,5 +6,19 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    //
+    
+    
+    public function index()
+    {
+
+        $prikol = 'я прикол';
+
+        return view('posts', [
+            "prikol" => $prikol,
+            "prikol2" => 'text'
+        ]);
+    }
+
+
+
 }
