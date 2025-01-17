@@ -23,6 +23,7 @@ Route::middleware([
     Route::get('/posts', [PostController::class, 'index'])->name('posts')->middleware('role');
 
     Route::get('/posts-user', [PostController::class, 'postsUserShow'])->name('posts_user_show')->middleware('role-user');
+    Route::post('/add-post', [PostController::class, 'addPost'])->name('add-post')->middleware('role-user');
 
 });
 
