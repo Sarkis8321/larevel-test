@@ -14,6 +14,8 @@ class PostController extends Controller
     public function index()
     {
 
+        $posts = Post::all();
+
         $prikol = 'я прикол';
 
         return view('posts', [
@@ -24,7 +26,7 @@ class PostController extends Controller
 
     public function postsUserShow(){
 
-        $posts = Post::all();
+        $posts = Post::where('user_id', Auth::user()->id)->get();;
 
         return view('posts-user', ["posts" => $posts]);
 
