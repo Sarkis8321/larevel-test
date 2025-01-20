@@ -24,8 +24,9 @@ class PostController extends Controller
 
     public function postsUserShow(){
 
-        $name = 'helllo';
-        return view('posts-user', ["name" => $name]);
+        $posts = Post::all();
+
+        return view('posts-user', ["posts" => $posts]);
 
     }
 

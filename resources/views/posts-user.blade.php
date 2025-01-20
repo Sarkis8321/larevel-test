@@ -30,17 +30,19 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                    @foreach ($posts as $post)
                         <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                        </tr>
+                            <td>{{ $post->name }}</td>
+                            <td>{{ $post->description }}</td>
+                            <td>{{ $post->status }}</td>
+                            <td>{{ $post->created_at }}</td>
+                        </tr> 
+                    @endforeach
+
+                       
                     </tbody>
                 </table>
-
-                {{ $name }}
-
             </div>
         </div>  
     </div>
