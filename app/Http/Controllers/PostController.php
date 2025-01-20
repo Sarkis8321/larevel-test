@@ -16,11 +16,8 @@ class PostController extends Controller
 
         $posts = Post::all();
 
-        $prikol = 'я прикол';
-
         return view('posts', [
-            "prikol" => $prikol,
-            "prikol2" => 'text'
+            "posts" => $posts,
         ]);
     }
 

@@ -10,10 +10,31 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <h2>Список постов</h2>
+                
+                <table border>
+                    <thead>
+                        <tr>
+                            <td>Пользователь</td>
+                            <td>Название</td>
+                            <td>Описание</td>
+                            <td>Статус</td>
+                            <td>Дата добавления</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                @foreach ($posts as $post)
+                        <tr>
+                            <td>{{ $post->user_id }}</td>
+                            <td>{{ $post->name }}</td>
+                            <td>{{ $post->description }}</td>
+                            <td>{{ $post->status }}</td>
+                            <td>{{ $post->created_at }}</td>
+                        </tr> 
+                @endforeach
 
-                {{ $prikol }}
-                {{ $prikol2 }}
-
+                     
+                </tbody>
+            </table>
             </div>
         </div>  
     </div>
