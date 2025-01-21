@@ -18,8 +18,8 @@
                             <td>Email</td>
                             <td>Название</td>
                             <td>Описание</td>
-                            <td>Статус</td>
                             <td>Дата добавления</td>
+                            <td>Статус</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,8 +29,20 @@
                             <td>{{ $post->user_email }}</td>
                             <td>{{ $post->name }}</td>
                             <td>{{ $post->description }}</td>
-                            <td>{{ $post->status }}</td>
                             <td>{{ $post->created_at }}</td>
+                            <td>
+                            <select name="" id="" value="{{ $post->status }}">
+                                @foreach ($statuses as $st)
+                                    @if ($post->status == $st->id)
+                                    <option value="{{ $st->id }}" selected="selected">{{ $st->name }}</option>
+                                    @else 
+                                    <option value="{{ $st->id }}">{{ $st->name }}</option>
+                                    @endif
+
+                                @endforeach
+                            </select>
+                            
+                            </td>
                         </tr> 
                 @endforeach
 
