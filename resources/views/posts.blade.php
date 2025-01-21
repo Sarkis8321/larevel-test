@@ -15,6 +15,7 @@
                     <thead>
                         <tr>
                             <td>Пользователь</td>
+                            <td>Email</td>
                             <td>Название</td>
                             <td>Описание</td>
                             <td>Статус</td>
@@ -24,7 +25,8 @@
                     <tbody>
                 @foreach ($posts as $post)
                         <tr>
-                            <td>{{ $post->user_id }}</td>
+                            <td>{{ $post->user_name }}</td>
+                            <td>{{ $post->user_email }}</td>
                             <td>{{ $post->name }}</td>
                             <td>{{ $post->description }}</td>
                             <td>{{ $post->status }}</td>
