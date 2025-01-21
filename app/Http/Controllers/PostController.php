@@ -58,13 +58,9 @@ class PostController extends Controller
 
     public function addPost(Request $request){
 
-        $name = $request-> name;
+        $name = $request->name;
         $description = $request-> description;
-
-
-
         $p = new Post;
-
         $p->name = $name;
         $p->description = $description;
         $p->status = 1;
@@ -72,6 +68,16 @@ class PostController extends Controller
         $p->save();
 
         return Redirect::route('posts_user_show');
+    }
+
+
+    public function editPostStatus(Request $request) {
+        $post_id = $request->post_id;
+        $status_id = $request->status_id;
+        $p = Post::where('id', $post_id)->first();
+        $p->status = $status_id;
+        $p->save();
+        return Redirect::route('posts');
     }
 
 

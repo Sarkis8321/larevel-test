@@ -21,6 +21,8 @@ Route::middleware([
         return view('about');
     })->name('about');
     Route::get('/posts', [PostController::class, 'index'])->name('posts')->middleware('role');
+    Route::post('/edit-posts-status', [PostController::class, 'editPostStatus'])->name('edit-posts-status')->middleware('role');
+
 
     Route::get('/posts-user', [PostController::class, 'postsUserShow'])->name('posts_user_show')->middleware('role-user');
     Route::post('/add-post', [PostController::class, 'addPost'])->name('add-post')->middleware('role-user');
