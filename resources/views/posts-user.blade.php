@@ -14,8 +14,8 @@
                     @csrf
                 <div>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                    <input type="text" name="name" placeholder="название заявки" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-2">
-                    <textarea name="description" id="" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-2"></textarea>
+                    <input type="text" name="name" required placeholder="название заявки" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-2">
+                    <textarea name="description" required id="" class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-2"></textarea>
                 </div> 
                     <button type="submit" class="text-blue block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-2">Добавить</button>
                 </form>
@@ -35,7 +35,7 @@
                         <tr>
                             <td>{{ $post->name }}</td>
                             <td>{{ $post->description }}</td>
-                            <td>{{ $post->status }}</td>
+                            <td>{{ $post->status_name }}</td>
                             <td>{{ $post->created_at }}</td>
                         </tr> 
                     @endforeach

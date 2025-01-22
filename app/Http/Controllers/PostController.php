@@ -50,7 +50,25 @@ class PostController extends Controller
 
     public function postsUserShow(){
 
-        $posts = Post::where('user_id', Auth::user()->id)->get();;
+        $posts = Post::where('user_id', Auth::user()->id)->get();
+        $statuses = Satuses::all();
+
+        foreach ($posts as $key => $value){
+            
+            $status = null;
+            foreach($statuses as $st) {
+                if ($st["id"] == $value["status"]) {
+                    $status = $st;
+                    break;
+                }
+            }
+
+            $value["status_name"] = $status["name"];
+        }
+
+
+
+
 
         return view('posts-user', ["posts" => $posts]);
 
