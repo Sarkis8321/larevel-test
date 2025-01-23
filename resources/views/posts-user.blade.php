@@ -6,6 +6,69 @@
     </x-slot>
 
 
+<style>
+.modal {
+	position: fixed;
+	width: 30vw;
+	border: 1px solid #ccc;
+	left: 35vw;
+	top: -50vh;
+	padding: 20px;
+	background: #0c0;
+	color: #a0a;
+	border-radius: 20px;
+	transition: all .5s cubic-bezier(.78,-0.79,.33,1.76);
+}
+.modal span {
+	position: absolute;
+	right: 10px;
+	top: -10px;
+	border: 1px solid #f00;
+	color: #f00;
+	padding: 10px 15px;
+	border-radius: 50%;
+	background: #ccc;
+	cursor: pointer;
+}
+.active {
+	top: 10vh;
+}
+</style>
+
+
+
+
+@if ($errors->any())
+    <div class="modal active" id="modal1">
+		<span>X</span>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+	</div>
+    
+    <script>
+    let modal1 = document.querySelector('#modal1');
+    
+    let closem = document.querySelector('#modal1 span');
+
+    function notActive() {
+        modal1.classList.remove('active');
+    }
+
+    closem.addEventListener('click', (event) => {
+        event.preventDefault();
+        modal1.classList.remove('active');
+    })
+    setTimeout(notActive, 3000);
+</script>
+ 
+@endif
+    
+
+
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">

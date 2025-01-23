@@ -76,8 +76,22 @@ class PostController extends Controller
 
     public function addPost(Request $request){
 
+        
+        $validated = $request->validate([
+            'name' => 'required|min:2|max:100',
+            'description' => 'required|min:2|max:1000',
+        ], [
+            'name.required' => 'Введите название заявки',
+            'name.min' => 'в названии минимально 2 символа',
+            'name.max' => 'в названии максимально 100 символов',
+            'description.required' => 'Введите описание заявки',
+            'description.min' => 'в описании минимально 2 символа',
+            'description.max' => 'в описании максимально 1000 символов'
+        ]);
+
         $name = $request->name;
         $description = $request-> description;
+
         $p = new Post;
         $p->name = $name;
         $p->description = $description;
