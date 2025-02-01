@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-
+use App\Http\Controllers\ChatController;
 use App\Http\Middleware\checkAdminUser;
 
 
@@ -13,9 +13,9 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+ 
+    Route::get('/dashboard', [ChatController::class, 'index'])->name('dashboard');
+
 
     Route::get('/about', function () {
         return view('about');
@@ -26,6 +26,10 @@ Route::middleware([
 
     Route::get('/posts-user', [PostController::class, 'postsUserShow'])->name('posts_user_show')->middleware('role-user');
     Route::post('/add-post', [PostController::class, 'addPost'])->name('add-post')->middleware('role-user');
+
+
+    Route::post('/add-message', [ChatController::class, 'store'])->name('add-message');
+
 
 });
 

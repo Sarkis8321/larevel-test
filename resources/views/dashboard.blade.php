@@ -8,7 +8,25 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                Текст на главной странице
+                
+                <div class="chat">
+                    <div class="messages">
+                    @foreach ($messages as $m)
+                        <div class="message">
+                            {{ $m->text }}
+                        </div>
+                    @endforeach
+                    </div>
+                    <form action="/add-message" method="post">
+                        @csrf
+                        <input type="text" name="message" placeholder="введите сообщение">
+                        <button>Отправить</button>
+                    </form>
+                </div>
+
+
+
+
             </div>
         </div>  
     </div>
