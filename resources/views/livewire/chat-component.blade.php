@@ -4,6 +4,5 @@
             <li>{{ $message }}</li>
         @endforeach
     </ul>
-    <button wire:click="$emit('echo:chat,message.sent', 'New message!')">Отправить</button>
 </div>
 

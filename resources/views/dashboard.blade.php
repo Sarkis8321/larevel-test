@@ -10,6 +10,8 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 
                 <div class="chat">
+                @livewire('chat-component')
+
                     <div class="messages">
                     @foreach ($messages as $m)
                         <div class="message">
