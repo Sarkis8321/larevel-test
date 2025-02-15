@@ -25,6 +25,9 @@
                         <x-nav-link href="{{ route('posts') }}" :active="request()->routeIs('posts')">
                             Заявки
                         </x-nav-link>
+                        <x-nav-link href="{{ route('cabinets') }}" :active="request()->routeIs('cabinets')">
+                            Кабинеты
+                        </x-nav-link>
                     @else
                     <x-nav-link href="{{ route('posts_user_show') }}" :active="request()->routeIs('posts_user_show')">
                             Заявки пользователя
