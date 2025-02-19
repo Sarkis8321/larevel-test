@@ -1,6 +1,10 @@
 <x-app-layout>
     <style>
         .preloader {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             width: 100px;
             height: 100px;
             border-radius: 50%;
@@ -52,6 +56,7 @@
         const addCabinet = document.querySelector('#store-cabinet');
         addCabinet.addEventListener('click', (e) => {
             e.preventDefault();
+            preloader.style.display = 'block';
            fetch(form.action, {
             method: form.method,
             body: new FormData(form),
@@ -61,8 +66,9 @@
         })
         .then(response => response.json())
         .then(data => {
-            alert(data.message);
+            alert(data.message); 
             getCabinets()
+            preloader.style.display = 'none';
         });
         });
   });
