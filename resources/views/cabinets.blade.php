@@ -1,12 +1,24 @@
 <x-app-layout>
+    <style>
+        .preloader {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 10px solid #ccc;
+            border-top-color: #3498db;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             О компании
         </h2>
     </x-slot>
-
-
-
     <div>
         <h1>Кабинеты</h1>
 
@@ -16,16 +28,19 @@
             <input type="text" name="teacher" placeholder="Преподаватель">
             <button type="submit" id="store-cabinet">Добавить кабинет</button>
         </form>
+        <div class="preloader"></div>
         <div id="cabinets-list">
-
+            
         </div>
 
 <script>
-
-    function getCabinets() {
+ const preloader = document.querySelector('.preloader');
+ preloader.style.display = 'block';
+    function getCabinets() { 
         fetch('{{ route('get-cabinets') }}')
         .then(response => response.json())
         .then(data => {
+            preloader.style.display = 'none';
             const cabinetsList = document.querySelector('#cabinets-list');
             cabinetsList.innerHTML = data.cabinets.map(cabinet => `<div>${cabinet.name}-${cabinet.teacher}</div>`).join('');
         });
